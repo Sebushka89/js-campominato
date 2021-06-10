@@ -61,7 +61,8 @@ while (numeriUtente.length < 84) {
  }
   else if (numeriUtente.includes(numeroInserito) == true){
     alert('Hai già inserito questo numero, inseriscine uno nuovo');
- } else if (userNumberCont.length == numbersToWin) {
+ }
+  else if (numeriUtente.length == 84) {
     alert('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
     console.log('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
   }
