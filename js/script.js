@@ -19,7 +19,7 @@ Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dat
 Proviamo prima con pochi numeri, inserire 86 numeri ogni volta potrebbe essere un po’ Le validazioni e i controlli possiamo farli anche in un secondo momento.
 */
 
-var randomNumbersPc = [].sort();
+var randomNumbersPc = [];
 
 //funzione per numero random
 function getRandom (min, max) {
@@ -41,7 +41,7 @@ while (randomNumbersPc.length < 16) {
 console.log(randomNumbersPc.sort());
 
 // Creo un array per i numeri dell'utente
-var numeriUtente = [].sort();
+var numeriUtente = [];
 var partitaFinita = false;
 // Creo un ciclo per i numeri dell'utente che vanno pushati
 // solo se non li ripete e se inserisce un numero vietato
@@ -55,16 +55,16 @@ while (numeriUtente.length < 84 && partitaFinita == false) {
   partitaFinita = true;
 }
     else if (numeriUtente.includes(numeroInserito)){
-    alert('Hai già inserito questo numero, inseriscine uno nuovo');
+    alert('Hai già inserito questo numero, inseriscine uno nuovo');// se il numero non è uguale a quello già inserito dall'utente
 }
-    else if (numeriUtente.includes(numeroInserito) == false && randomNumbersPc.includes(numeroInserito) == false){ // se il numero non è uguale a quello già inserito dall'utente e che non sia presente nella lista dei numeri generati dal pc
+    else if (randomNumbersPc.includes(numeroInserito) == false){  //che non sia presente nella lista dei numeri generati dal pc
     numeriUtente.push(numeroInserito)// allora pushalo nell'array
 }
     else if (numeriUtente.length == randomNumbersPc.length) {
     document.getElementById('output').innerHTML = ('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
     console.log('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
   }
-  else{
+    else if (randomNumbersPc.includes(numeroInserito) == true){
     document.getElementById('output').innerHTML = ('hai perso!'); //hai perso
     console.log('i tentativi sono stati ' + numeriUtente.length);
     partitaFinita = true;
