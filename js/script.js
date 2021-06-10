@@ -52,7 +52,6 @@ while (numeriUtente.length < 84 && partitaFinita == false) {
 
   if ( numeroInserito <= 0 || numeroInserito > 100 || isNaN(numeroInserito) ) {
   userNumbers = parseInt(prompt('Il dato inserito deve essere un numero compreso tra 0 e ' + 100));
-  partitaFinita = true;
 }
     else if (numeriUtente.includes(numeroInserito)){
     alert('Hai già inserito questo numero, inseriscine uno nuovo');// se il numero non è uguale a quello già inserito dall'utente
@@ -65,7 +64,7 @@ while (numeriUtente.length < 84 && partitaFinita == false) {
     console.log('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
   }
     else if (randomNumbersPc.includes(numeroInserito) == true){
-    document.getElementById('output').innerHTML = ('hai perso!'); //hai perso
+    document.getElementById('output').innerHTML = ('hai perso!' + ' I tentativi sono stati ' + numeriUtente.length ); //hai perso
     console.log('i tentativi sono stati ' + numeriUtente.length);
     partitaFinita = true;
   }
