@@ -7,7 +7,7 @@ La partita termina quando il giocatore inserisce un numero “vietato” o raggi
 Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l’utente ha inserito un numero consentito.
 
 BONUS: (da fare solo se funziona tutto il resto) all’inizio il software richiede anche una difficoltà all’utente che cambia il range di numeri casuali: con difficoltà 0 => tra 1 e 100 con difficoltà 1 => tra 1 e 80 con difficoltà 2 => tra 1 e 50
-Consigli del giorno: :party_wizard:
+Consigli del giorno:
 Scriviamo prima cosa vogliamo fare passo passo in italiano, o in pseudo codice, come abbiamo visto oggi, dividiamo il lavoro in micro problemi. Ad esempio: Di cosa ho bisogno per generare i numeri?
 Proviamo sempre prima con dei console.log() per capire se stiamo ricevendo i dati giusti.
 Proviamo prima con pochi numeri, inserire 86 numeri ogni volta potrebbe essere un po’ Le validazioni e i controlli possiamo farli anche in un secondo momento.
