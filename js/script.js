@@ -26,16 +26,35 @@ function getRandom (min, max) {
     if (isNaN(min) || isNaN(max)) {
         alert("Non hai inserito un numero");
       } else {
-    var random = Math.floor(Math.random() * (max - min + min) + 1);
+          var random = Math.floor(Math.random() * (max - min + min) + 1);
     return random;
   }
 }
+var difficoltà = parseInt( prompt('Scegli difficoltà tra 0, 1 o 2.') );
+
+
+switch(difficoltà) {
+    case 0:
+      numMax = 100;
+      numbersForWin = 84;
+      break;
+    case 1:
+      numMax = 80;
+      numbersForWin = 64;
+      break;
+    case 2:
+      numMax = 50;
+      numbersForWin = 34;
+      break;
+    default:
+        alert('LIvello di difficoltà non accettato')
+  };
 
 while (randomNumbersPc.length < 16) {
-  var cpuRandomNumber = getRandom(1, 100);
+  var cpuRandomNumber = getRandom(1, numMax);
   if(randomNumbersPc.includes(cpuRandomNumber) == false) {
     randomNumbersPc.push(cpuRandomNumber);
-  }
+}
 }
 
 console.log(randomNumbersPc.sort());
@@ -47,11 +66,16 @@ var partitaFinita = false;
 // solo se non li ripete e se inserisce un numero vietato
 // il gioco si ferma
 
-while (numeriUtente.length < 84 && partitaFinita == false) {
-  var numeroInserito = parseInt(prompt("inserisci qui il primo di 84 numeri"));
+while (numeriUtente.length < numbersForWin && partitaFinita == false) {
+  var numeroInserito = parseInt(prompt("inserisci qui il primo di " + numbersForWin + " numeri"));
 
-  if ( numeroInserito <= 0 || numeroInserito > 100 || isNaN(numeroInserito) ) {
-  userNumbers = parseInt(prompt('Il dato inserito deve essere un numero compreso tra 0 e ' + 100));
+  if ( numeroInserito <= 0 || numeroInserito > numMax || isNaN(numeroInserito) ) {
+  userNumbers = parseInt(prompt('Il dato inserito deve essere un numero compreso tra 0 e ' + numMax));
+}
+    if (numeriUtente.length == randomNumbersPc.length) {
+    document.getElementById('output').innerHTML = ('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
+    console.log('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
+    partitaFinita = true;
 }
     else if (numeriUtente.includes(numeroInserito)){
     alert('Hai già inserito questo numero, inseriscine uno nuovo');// se il numero non è uguale a quello già inserito dall'utente
@@ -59,16 +83,13 @@ while (numeriUtente.length < 84 && partitaFinita == false) {
     else if (randomNumbersPc.includes(numeroInserito) == false){  //che non sia presente nella lista dei numeri generati dal pc
     numeriUtente.push(numeroInserito)// allora pushalo nell'array
 }
-    else if (numeriUtente.length == randomNumbersPc.length) {
-    document.getElementById('output').innerHTML = ('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
-    console.log('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
-  }
     else if (randomNumbersPc.includes(numeroInserito) == true){
     document.getElementById('output').innerHTML = ('hai perso!' + ' I tentativi sono stati ' + numeriUtente.length ); //hai perso
     console.log('i tentativi sono stati ' + numeriUtente.length);
     partitaFinita = true;
-  }
+  } else {
+    document.getElementById('output').innerHTML = ('hai perso!' + ' I tentativi sono stati ' + numeriUtente.length ); //hai perso
+    console.log('i tentativi sono stati ' + numeriUtente.length);
+    partitaFinita = true;
 }
-
-
-console.log(numeriUtente);
+}
