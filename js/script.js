@@ -72,7 +72,7 @@ while (numeriUtente.length < numbersForWin && partitaFinita == false) {
   if ( numeroInserito <= 0 || numeroInserito > numMax || isNaN(numeroInserito) ) {
   userNumbers = parseInt(prompt('Il dato inserito deve essere un numero compreso tra 0 e ' + numMax));
 }
-  else if (numeriUtente.length == randomNumbersPc.length) {
+  else if (numeriUtente.length == numbersForWin) {
   document.getElementById('output').innerHTML = ('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
   console.log('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
   partitaFinita = true;
