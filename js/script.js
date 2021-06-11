@@ -52,7 +52,7 @@ switch(difficoltà) {
 
 while (randomNumbersPc.length < 16) {
   var cpuRandomNumber = getRandom(1, numMax);
-  if(randomNumbersPc.includes(cpuRandomNumber) == false) {
+  if(!randomNumbersPc.includes(cpuRandomNumber)) {
     randomNumbersPc.push(cpuRandomNumber);
 }
 }
@@ -72,24 +72,24 @@ while (numeriUtente.length < numbersForWin && partitaFinita == false) {
   if ( numeroInserito <= 0 || numeroInserito > numMax || isNaN(numeroInserito) ) {
   userNumbers = parseInt(prompt('Il dato inserito deve essere un numero compreso tra 0 e ' + numMax));
 }
-    if (numeriUtente.length == randomNumbersPc.length) {
-    document.getElementById('output').innerHTML = ('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
-    console.log('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
-    partitaFinita = true;
+  else if (numeriUtente.length == randomNumbersPc.length) {
+  document.getElementById('output').innerHTML = ('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
+  console.log('Hai inserito ' + numeriUtente.length + ' numeri, il numero massimo di tentativi. Hai vinto!');
+  partitaFinita = true;
 }
-    else if (numeriUtente.includes(numeroInserito)){
-    alert('Hai già inserito questo numero, inseriscine uno nuovo');// se il numero non è uguale a quello già inserito dall'utente
+  else if (numeriUtente.includes(numeroInserito)){
+  alert('Hai già inserito questo numero, inseriscine uno nuovo');// se il numero non è uguale a quello già inserito dall'utente
 }
-    else if (randomNumbersPc.includes(numeroInserito) == false){  //che non sia presente nella lista dei numeri generati dal pc
-    numeriUtente.push(numeroInserito)// allora pushalo nell'array
+  else if (!randomNumbersPc.includes(numeroInserito)){  //che non sia presente nella lista dei numeri generati dal pc
+  numeriUtente.push(numeroInserito)// allora pushalo nell'array
 }
-    else if (randomNumbersPc.includes(numeroInserito) == true){
-    document.getElementById('output').innerHTML = ('hai perso!' + ' I tentativi sono stati ' + numeriUtente.length ); //hai perso
-    console.log('i tentativi sono stati ' + numeriUtente.length);
-    partitaFinita = true;
-  } else {
-    document.getElementById('output').innerHTML = ('hai perso!' + ' I tentativi sono stati ' + numeriUtente.length ); //hai perso
-    console.log('i tentativi sono stati ' + numeriUtente.length);
-    partitaFinita = true;
+  else if (randomNumbersPc.includes(numeroInserito)){
+  document.getElementById('output').innerHTML = ('hai perso!' + ' I tentativi sono stati ' + numeriUtente.length ); //hai perso
+  console.log('i tentativi sono stati ' + numeriUtente.length);
+  partitaFinita = true;
+} else {
+  document.getElementById('output').innerHTML = ('hai perso!' + ' I tentativi sono stati ' + numeriUtente.length ); //hai perso
+  console.log('i tentativi sono stati ' + numeriUtente.length);
+  partitaFinita = true;
 }
 }
